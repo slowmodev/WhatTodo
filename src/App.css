@@ -1,38 +1,237 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background-color: #fafafa;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input {
+    font-family: 'Josefin Sans', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+hr {
+    border: 1px solid gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+
+.bg-image {
+    background-image: url("../images/bg-desktop-light.jpg");
+    background-size: cover;
+    height: 35vh;
+}
+
+.container {
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 0px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    color: #fafafa;
+
+    font-size: 1.5rem;
+}
+
+.header h1 {
+    letter-spacing: 0.5em;
+}
+
+.input-container {
+    width: 100%;
+    position: relative;
+}
+
+.new-todo {
+    font-size: 1.2rem;
+
+    width: 100%;
+    margin: 20px 0 20px 0;
+    padding: 15px 0px 15px 50px;
+    /* padding-left: 8px; */
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: rgb(139, 136, 136);
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(167, 161, 161);
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(167, 161, 161);
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(167, 161, 161);
+}
+
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-57%);
+
+    color: rgb(201, 195, 195);
+}
+
+
+.icons {
+    cursor: pointer;
+}
+
+
+/***** Todo ******/
+
+.todos-container {
+    width: 100%;
+    background: #ffffff;
+    color: rgb(139, 136, 136);
+    border-radius: 5px;
+    box-shadow: -1px 8px 24px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 8px 24px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 8px 24px -4px rgba(0,0,0,0.75);
+}
+
+
+.todos-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+
+    padding: 12px 10px;
+    padding-left: 18px;
+}
+
+.content {
+    margin-right: auto;
+}
+
+.remove {
+    cursor: pointer;
+}
+
+
+.todos-list:last-child {
+    padding-bottom: 0px;
+}
+
+.todo-state {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.states {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.remaining:hover, 
+.remaining:focus, 
+.state:hover, 
+.state:focus, 
+.clear:hover, 
+.clear:focus {
+    color: hsl(220, 98%, 61%);
+}
+
+.states-mobile {
+    width: 100%;
+    display: none;
+    margin: 20px 0;
+    padding: 15px 20px;
+
+    background: #ffffff;
+    color: rgb(139, 136, 136);
+    border-radius: 5px;
+    box-shadow: -1px 8px 24px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 8px 24px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 8px 24px -4px rgba(0,0,0,0.75);
+}
+
+.reorder {
+    color: rgb(139, 136, 136);
+    font-style: italic;
+    margin: 30px 0;
+}
+
+/***** Dark *****/
+
+.dark .bg-image {
+    background-image: url("../images/bg-desktop-dark.jpg");
+    background-size: cover;
+    height: 35vh;
+}
+
+.dark {
+    background: #161722;
+    height: 100vh;
+}
+
+.dark .new-todo {
+    background: #25273c;
+}
+
+.dark .todos-container {
+    background: #25273c;
+    color: rgb(233, 224, 224);
+}
+.dark .states-mobile {
+    background: #25273c;
+    color: rgb(233, 224, 224);
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        padding: 80px 20px;
+    }
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    .bg-image {
+        background-image: url("../images/bg-mobile-light.jpg")
+    }
+    .dark .bg-image {
+        background-image: url("../images/bg-mobile-dark.jpg")
+    }
+    .states{
+        display: none;
+    }
+    .states-mobile {
+        display: flex;
+        justify-content: space-between;        
+    }
+    .todos-container {
+        font-size: 1rem;
+    }
 }
